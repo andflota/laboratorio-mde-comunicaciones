@@ -1,0 +1,46 @@
+id: punto1
+label: Modulacion PAM
+category: '[Modulo_L1B_G50]'
+
+parameters:
+-   id: d
+    label: Ancho de pulso
+    dtype: int
+    default: '10'
+    hide: none
+-   id: fs
+    label: Frecuencia Al cuadrado
+    dtype: raw
+    default: '100000'
+    hide: none
+-   id: samp_rate
+    label: Frecuaencia de muestreo
+    dtype: raw
+    default: '100000'
+    hide: none
+
+inputs:
+-   label: in
+    dtype: float
+    vlen: 1
+
+outputs:
+-   label: out
+    dtype: float
+    vlen: 1
+
+templates:
+    imports: 'from punto1 import punto1  # grc-generated hier_block'
+    make: "punto1(\n    d=${ d },\n    fs=${ fs },\n    samp_rate=${ samp_rate },\n\
+        )"
+    callbacks:
+    - set_d(${ d })
+    - set_fs(${ fs })
+    - set_samp_rate(${ samp_rate })
+
+documentation: 'EDWAR_ANDRES
+
+    /home/labcom/Escritorio/Laboratorio_L1B_Grupo5/Practica 5/punto1.py'
+grc_source: /home/labcom/Escritorio/Laboratorio_L1B_Grupo5/Practica 5/punto1.grc
+
+file_format: 1

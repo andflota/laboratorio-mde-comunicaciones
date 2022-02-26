@@ -1,0 +1,46 @@
+id: Modulo_5
+label: Modulacion PAM5
+category: '[Modulos_L1B_G5]'
+
+parameters:
+-   id: d
+    label: ancho de pulso
+    dtype: int
+    default: '10'
+    hide: none
+-   id: fs
+    label: Frecuencia Cuadrada
+    dtype: raw
+    default: '100000'
+    hide: none
+-   id: samp_rate
+    label: Frecuencia de muestreo
+    dtype: raw
+    default: '100000'
+    hide: none
+
+inputs:
+-   label: in
+    dtype: float
+    vlen: 1
+
+outputs:
+-   label: out
+    dtype: float
+    vlen: 1
+
+templates:
+    imports: 'from Modulo_5 import Modulo_5  # grc-generated hier_block'
+    make: "Modulo_5(\n    d=${ d },\n    fs=${ fs },\n    samp_rate=${ samp_rate },\n\
+        )"
+    callbacks:
+    - set_d(${ d })
+    - set_fs(${ fs })
+    - set_samp_rate(${ samp_rate })
+
+documentation: 'EDWAR_ANDRES
+
+    /home/labcom/Escritorio/Laboratorio_L1B_Grupo5/Practica 5/Modulo_5.py'
+grc_source: /home/labcom/Escritorio/Laboratorio_L1B_Grupo5/Practica 5/1.grc
+
+file_format: 1
